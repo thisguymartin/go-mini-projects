@@ -29,3 +29,36 @@ func TestGreetNotFound(t *testing.T) {
 		t.Errorf("expect %q, got: %q", expect, greet)
 	}
 }
+
+func TestGreet(t *testing.T) {
+	type testCase struct {
+		lang language
+		want string
+	}
+
+	var tests = map[string]testCase{
+		"English": {
+			lang: "en",
+			want: "Hello World!",
+		},
+		"Spanish": {
+			lang: "sp",
+			want: "Hola Mundo!",
+		},
+		"Akkadian, not supported": {
+			lang: "akk",
+			want: `Nothing found!: "akk"`,
+		},
+	}
+
+	for name, tc := range tests {
+		t.Run(name, func(t *testing.T) {
+			got := greet(tc.lang)
+
+			if got != tc.want {
+				t.Errorf("Expected %q, got: %q", tc.want, got)
+			}
+		})
+	}
+
+}
