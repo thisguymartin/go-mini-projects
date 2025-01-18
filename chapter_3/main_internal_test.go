@@ -10,6 +10,42 @@ type testCase struct {
 	wantErr      bool
 }
 
+func TestBookCount(t *testing.T) {
+	var test = map[string]struct {
+		input []BookWormData
+		want  map[Book]uint
+	}{
+		"use case": {
+			input: []BookWormData{
+				{Name: "Fadi", Books: []Book{
+					{
+						Author: "Margaret Atwood",
+						Title:  "The Handmaid's Tale",
+					},
+					{
+						Author: "Sylvia Plath",
+						Title:  "The Bell Jar",
+					},
+					{
+						Author: "George Lucas",
+						Title:  "Star Wars",
+					}}},
+				{Name: "Peggy", Books: []Book{
+					{
+						Author: "Margaret Atwood",
+						Title:  "The Handmaid's Tale",
+					},
+					{
+						Author: "Sylvia Plath",
+						Title:  "The Bell Jar",
+					},
+				}},
+			},
+			want: map[Book]uint{},
+		},
+	}
+}
+
 func TestGreetSpanish(t *testing.T) {
 	var test = testCase{
 		bookworkFile: "./data/bookworm.json",
@@ -25,13 +61,17 @@ func TestGreetSpanish(t *testing.T) {
 						Author: "Sylvia Plath",
 						Title:  "The Bell Jar",
 					},
+					{
+						Author: "George Lucas",
+						Title:  "Star Wars",
+					},
 				},
 			},
 			{
 				Name: "Peggy",
 				Books: []Book{
 					{
-						Author: "Cat Atwood",
+						Author: "Margaret Atwood",
 						Title:  "The Handmaid's Tale",
 					},
 					{

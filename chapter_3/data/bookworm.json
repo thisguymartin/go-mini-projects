@@ -9,6 +9,10 @@
             {
                 "author": "Sylvia Plath",
                 "title": "The Bell Jar"
+            },
+            {
+                "author": "George Lucas",
+                "title": "Star Wars"  
             }
         ]
     },
@@ -16,7 +20,7 @@
         "name": "Peggy",
         "books": [
             {
-                "author": "Cat Atwood",
+                "author": "Margaret Atwood",
                 "title": "The Handmaid's Tale"
             },
             {

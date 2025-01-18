@@ -28,13 +28,22 @@ func main() {
 	// fmt.Printf("Here are the worms %s", worms)
 }
 
+func commonBooks(bookworms []BookWormData) map[Book]uint {
+	count := make(map[Book]uint)
+	for _, bookworm := range bookworms {
+		for _, book := range bookworm.Books {
+			count[book]++
+		}
+	}
+	return count
+}
+
 func LoadBookData(filePath string) ([]BookWormData, error) {
 
 	f, err := os.Open(filePath)
 	if err != nil {
 		panic("done here")
 	}
-
 	defer f.Close()
 
 	var bookworms []BookWormData
@@ -47,5 +56,8 @@ func LoadBookData(filePath string) ([]BookWormData, error) {
 		d := bookworms[b]
 		fmt.Println(d.Name)
 	}
+
+	c := commonBooks(bookworms)
+	fmt.Print(c)
 	return bookworms, nil
 }
