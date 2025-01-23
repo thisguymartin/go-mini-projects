@@ -56,8 +56,5 @@ func LoadBookData(filePath string) ([]BookWormData, error) {
 		d := bookworms[b]
 		fmt.Println(d.Name)
 	}
-
-	c := commonBooks(bookworms)
-	fmt.Print(c)
 	return bookworms, nil
 }
