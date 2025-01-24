@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -14,7 +13,7 @@ type testCase struct {
 var (
 	handmaidsTale = Book{Author: "Margaret Atwood", Title: "The Handmaid's Tale"}
 	theBellJar    = Book{Author: "Sylvia Plath", Title: "The Bell Jar"}
-	oryxAndCrake  = Book{Author: "Margaret Atwood", Title: "Oryx and Crake"}
+	starWars      = Book{Author: "George Lucas", Title: "Star Wars"}
 	janeEyre      = Book{Author: "Charlotte Brontë", Title: "Jane Eyre"}
 )
 
@@ -49,7 +48,7 @@ func TestBookCount(t *testing.T) {
 					},
 				}},
 			},
-			want: map[Book]uint{handmaidsTale: 2, theBellJar: 1, oryxAndCrake: 1, janeEyre: 1},
+			want: map[Book]uint{handmaidsTale: 2, theBellJar: 2, starWars: 1},
 		},
 	}
 
@@ -57,7 +56,6 @@ func TestBookCount(t *testing.T) {
 
 		t.Run(name, func(t *testing.T) {
 			got := booksCount(tc.input)
-			fmt.Print(got)
 			if !equalBooksCount(got, tc.want) {
 				t.Fatalf("got a different list of books: %v, expected %v", got, tc.want)
 			}
@@ -131,7 +129,7 @@ func TestGreetSpanish(t *testing.T) {
 		wantErr: false,
 	}
 
-	got, err := LoadBookData(test.bookworkFile)
+	got, err := loadBookData(test.bookworkFile)
 
 	if err != nil && test.wantErr {
 		t.Fatalf("Expected an error, got none: %s", err.Error())
