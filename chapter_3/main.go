@@ -1,63 +1,30 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
 	"os"
 )
 
-type Book struct {
-	Author string `json:"author"`
-	Title  string `json:"title"`
-}
-
-type BookWormData struct {
-	Name  string `json:"name"`
-	Books []Book `json:"books"`
+type Recommendation struct {
+	Book  Book
+	Score float64
 }
 
 func main() {
 	var filePath string
 	flag.StringVar(&filePath, "file", "", "The filepath is required")
 	flag.Parse()
-	_, err := LoadBookData(filePath)
+	books, err := loadBookData(filePath)
 	if err != nil {
-		panic("Failed to look at book data")
+		_, _ = fmt.Fprintf(os.Stderr, "Failed to load data %s", err)
+		os.Exit(1)
 	}
-	// fmt.Printf("Here are the worms %s", worms)
-}
-
-func commonBooks(bookworms []BookWormData) map[Book]uint {
-	count := make(map[Book]uint)
-	for _, bookworm := range bookworms {
-		for _, book := range bookworm.Books {
-			count[book]++
-		}
+	fmt.Println("Loading common books")
+	commonBooks := findCommonBook(books)
+	fmt.Println("Here are your commong books recommended")
+	for _, book := range commonBooks {
+		fmt.Printf("Title: %s, Author: %s \n", book.Title, book.Author)
+		fmt.Println("====")
 	}
-	return count
-}
-
-func LoadBookData(filePath string) ([]BookWormData, error) {
-
-	f, err := os.Open(filePath)
-	if err != nil {
-		panic("done here")
-	}
-	defer f.Close()
-
-	var bookworms []BookWormData
-	err = json.NewDecoder(f).Decode(&bookworms)
-	if err != nil {
-		panic("Error here in decorder")
-	}
-
-	for b := range len(bookworms) {
-		d := bookworms[b]
-		fmt.Println(d.Name)
-	}
-
-	c := commonBooks(bookworms)
-	fmt.Print(c)
-	return bookworms, nil
 }
