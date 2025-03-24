@@ -7,12 +7,12 @@
                 "title": "The Handmaid's Tale"
             },
             {
-                "author": "Sylvia Plath",
-                "title": "The Bell Jar"
+                "author": "Margaret Atwood",
+                "title": "The Handmaid's Tale"
             },
             {
                 "author": "George Lucas",
-                "title": "Star Wars"  
+                "title": "Star Wars"
             }
         ]
     },
@@ -28,5 +28,186 @@
                 "title": "The Bell Jar"
             }
         ]
+    },
+    {
+        "name": "Alex",
+        "books": [
+            {
+                "author": "J.K. Rowling",
+                "title": "Harry Potter and the Philosopher's Stone"
+            },
+            {
+                "author": "J.K. Rowling",
+                "title": "Harry Potter and the Philosopher's Stone"
+            },
+            {
+                "author": "Douglas Adams",
+                "title": "The Hitchhiker's Guide to the Galaxy"
+            }
+        ]
+    },
+    {
+        "name": "Sarah",
+        "books": [
+            {
+                "author": "Jane Austen",
+                "title": "Pride and Prejudice"
+            },
+            {
+                "author": "Emily Brontë",
+                "title": "Wuthering Heights"
+            },
+            {
+                "author": "Emily Brontë",
+                "title": "Wuthering Heights"
+            }
+        ]
+    },
+    {
+        "name": "Marcus",
+        "books": [
+            {
+                "author": "Stephen King",
+                "title": "The Shining"
+            },
+            {
+                "author": "Neil Gaiman",
+                "title": "American Gods"
+            },
+            {
+                "author": "Neil Gaiman",
+                "title": "American Gods"
+            }
+        ]
+    },
+    {
+        "name": "Emma",
+        "books": [
+            {
+                "author": "Haruki Murakami",
+                "title": "1Q84"
+            },
+            {
+                "author": "Haruki Murakami",
+                "title": "1Q84"
+            }
+        ]
+    },
+    {
+        "name": "James",
+        "books": [
+            {
+                "author": "Andy Weir",
+                "title": "The Martian"
+            },
+            {
+                "author": "Andy Weir",
+                "title": "The Martian"
+            }
+        ]
+    },
+    {
+        "name": "Maria",
+        "books": [
+            {
+                "author": "Isabel Allende",
+                "title": "The House of the Spirits"
+            },
+            {
+                "author": "Junot Díaz",
+                "title": "The Brief Wondrous Life of Oscar Wao"
+            }
+        ]
+    },
+    {
+        "name": "David",
+        "books": [
+            {
+                "author": "Philip K. Dick",
+                "title": "Do Androids Dream of Electric Sheep?"
+            },
+            {
+                "author": "Philip K. Dick",
+                "title": "Do Androids Dream of Electric Sheep?"
+            }
+        ]
+    },
+    {
+        "name": "Sophie",
+        "books": [
+            {
+                "author": "Virginia Woolf",
+                "title": "Mrs Dalloway"
+            },
+            {
+                "author": "Virginia Woolf",
+                "title": "Mrs Dalloway"
+            }
+        ]
+    },
+    {
+        "name": "Raj",
+        "books": [
+            {
+                "author": "Arundhati Roy",
+                "title": "The God of Small Things"
+            },
+            {
+                "author": "Arundhati Roy",
+                "title": "The God of Small Things"
+            }
+        ]
+    },
+    {
+        "name": "Luna",
+        "books": [
+            {
+                "author": "Kurt Vonnegut",
+                "title": "Slaughterhouse-Five"
+            },
+            {
+                "author": "Kurt Vonnegut",
+                "title": "Slaughterhouse-Five"
+            }
+        ]
+    },
+    {
+        "name": "Oliver",
+        "books": [
+            {
+                "author": "Aldous Huxley",
+                "title": "Brave New World"
+            },
+            {
+                "author": "George Orwell",
+                "title": "1984"
+            }
+        ]
+    },
+    {
+        "name": "Zoe",
+        "books": [
+            {
+                "author": "Octavia Butler",
+                "title": "Kindred"
+            },
+            {
+                "author": "Octavia Butler",
+                "title": "Kindred"
+            }
+        ]
+    },
+    {
+        "name": "Leo",
+        "books": [
+            {
+                "author": "Ursula K. Le Guin",
+                "title": "The Left Hand of Darkness"
+            },
+            {
+                "author": "Ursula K. Le Guin",
+                "title": "The Left Hand of Darkness"
+            }
+        ]
     }
-]
+ ]

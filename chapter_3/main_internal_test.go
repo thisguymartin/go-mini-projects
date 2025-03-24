@@ -10,8 +10,15 @@ type testCase struct {
 	wantErr      bool
 }
 
+var (
+	handmaidsTale = Book{Author: "Margaret Atwood", Title: "The Handmaid's Tale"}
+	theBellJar    = Book{Author: "Sylvia Plath", Title: "The Bell Jar"}
+	starWars      = Book{Author: "George Lucas", Title: "Star Wars"}
+	janeEyre      = Book{Author: "Charlotte Brontë", Title: "Jane Eyre"}
+)
+
 func TestBookCount(t *testing.T) {
-	var test = map[string]struct {
+	var tt = map[string]struct {
 		input []BookWormData
 		want  map[Book]uint
 	}{
@@ -41,11 +48,49 @@ func TestBookCount(t *testing.T) {
 					},
 				}},
 			},
-			want: map[Book]uint{},
+			want: map[Book]uint{handmaidsTale: 2, theBellJar: 2, starWars: 1},
 		},
 	}
+
+	for name, tc := range tt {
+
+		t.Run(name, func(t *testing.T) {
+			got := booksCount(tc.input)
+			if !equalBooksCount(got, tc.want) {
+				t.Fatalf("got a different list of books: %v, expected %v", got, tc.want)
+			}
+		})
+	}
+
 }
 
+func equalBooksCount(got, want map[Book]uint) bool {
+	if len(got) != len(want) {
+		return false
+	}
+
+	for book, targetCount := range want {
+		count, ok := got[book]
+		if !ok || targetCount != count {
+			return false
+		}
+
+	}
+
+	return true
+}
+
+func booksCount(bookworms []BookWormData) map[Book]uint {
+	count := make(map[Book]uint)
+
+	for _, bookworm := range bookworms {
+		for _, book := range bookworm.Books {
+			count[book]++
+		}
+	}
+
+	return count
+}
 func TestGreetSpanish(t *testing.T) {
 	var test = testCase{
 		bookworkFile: "./data/bookworm.json",
@@ -84,7 +129,7 @@ func TestGreetSpanish(t *testing.T) {
 		wantErr: false,
 	}
 
-	got, err := LoadBookData(test.bookworkFile)
+	got, err := loadBookData(test.bookworkFile)
 
 	if err != nil && test.wantErr {
 		t.Fatalf("Expected an error, got none: %s", err.Error())
